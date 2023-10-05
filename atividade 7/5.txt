@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main() {
+    int contador = 0, numero = 2, soma = 0;
+
+    while (contador < 50) soma += numero, numero += 2, contador++;
+
+    printf("A soma dos 50 primeiros números pares é: %d\n", soma);
+
+}

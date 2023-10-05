@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+int main() {
+    char sexo, corOlhos, corCabelos;
+    int idade;
+    float salario;
+    int totalHabitantes = 0;
+    int mulheresComCastanhos = 0;
+
+    while (1) {
+        printf("Digite o sexo (m/f): ");
+        scanf(" %c", &sexo);
+
+        if (sexo == 'm' || sexo == 'f') {
+            printf("Digite a cor dos olhos (a/v/c/p): ");
+            scanf(" %c", &corOlhos);
+
+            if (corOlhos == 'a' || corOlhos == 'v' || corOlhos == 'c' || corOlhos == 'p') {
+                printf("Digite a cor dos cabelos (l/c/p/r): ");
+                scanf(" %c", &corCabelos);
+
+                if (corCabelos == 'l' || corCabelos == 'c' || corCabelos == 'p' || corCabelos == 'r') {
+                    printf("Digite a idade: ");
+                    scanf("%d", &idade);
+
+                    if (idade >= 10 && idade <= 100) {
+                        printf("Digite o salário: ");
+                        scanf("%f", &salario);
+
+                        if (salario >= 0) {
+                            totalHabitantes++;
+
+                            if (sexo == 'f' && idade >= 18 && idade <= 35 && corOlhos == 'c' && corCabelos == 'c') {
+                                mulheresComCastanhos++;
+                            }
+                        } else {
+                            printf("Salário inválido. Informe um valor não negativo.\n");
+                        }
+                    } else {
+                        printf("Idade inválida. Informe uma idade entre 10 e 100 anos.\n");
+                    }
+                } else {
+                    printf("Cor dos cabelos inválida. Informe 'l', 'c', 'p' ou 'r'.\n");
+                }
+            } else {
+                printf("Cor dos olhos inválida. Informe 'a', 'v', 'c' ou 'p'.\n");
+            }
+        } else {
+            printf("Sexo inválido. Informe 'm' ou 'f'.\n");
+        }
+
+        // Verifica se o usuário deseja encerrar a entrada de dados
+        if (idade == -1) {
+            break;
+        }
+    }
+
+    if (totalHabitantes > 0) {
+        float porcentagem = ((float)mulheresComCastanhos / totalHabitantes) * 100.0;
+        printf("Porcentagem de mulheres com idade entre 18 e 35 anos, olhos castanhos e cabelos castanhos: %.2f%%\n", porcentagem);
+    } else {
+        printf("Nenhum habitante cadastrado.\n");
+    }
+}

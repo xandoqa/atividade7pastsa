@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Digite um número inteiro positivo: ");
+    scanf("%d", &N);
+
+    if (N < 0) {
+        printf("Número não é positivo.\n");
+    
+    }
+
+    printf("Números naturais de 0 até %d em ordem decrescente:\n", N);
+    
+    for (int i = N; i >= 0; i--) {
+        printf("%d\n", i);
+    }
+
+
+}

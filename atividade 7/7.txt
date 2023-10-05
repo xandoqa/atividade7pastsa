@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    int continuar = 1;
+    float total = 0.0;
+
+    while (continuar) {
+        printf("Lista de frutas disponíveis:\n");
+        printf("1. ABACAXI - R$5.00 a unidade\n");
+        printf("2. MAÇA - R$1.00 a unidade\n");
+        printf("3. PERA - R$4.00 a unidade\n");
+        printf("0. Sair\n");
+
+        int escolha, quantidade;
+        printf("Escolha uma fruta (1-3) ou 0 para sair: ");
+        scanf("%d", &escolha);
+
+        if (escolha < 0 || escolha > 3) {
+            printf("Opção inválida.\n");
+        } else if (escolha == 0) {
+            continuar = 0;
+        } else {
+            float preco_fruta;
+            switch (escolha) {
+                case 1:
+                    preco_fruta = 5.0;
+                    break;
+                case 2:
+                    preco_fruta = 1.0;
+                    break;
+                case 3:
+                    preco_fruta = 4.0;
+                    break;
+            }
+
+            printf("Quantidade desejada: ");
+            scanf("%d", &quantidade);
+
+            if (quantidade <= 0) {
+                printf("Quantidade inválida.\n");
+            } else {
+                float subtotal = preco_fruta * quantidade;
+                printf("Você comprou %d unidade(s) da fruta por R$%.2f.\n", quantidade, subtotal);
+                total += subtotal;
+            }
+        }
+    }
+
+    printf("Valor total da compra: R$%.2f\n", total);
+
+}

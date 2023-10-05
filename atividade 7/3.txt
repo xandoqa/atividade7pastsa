@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    printf("Digite um número inteiro N: ");
+    scanf("%d", &N);
+
+    printf("Os primeiros %d números naturais ímpares são:\n", N);
+    for (int i = 1; N--; i += 2) printf("%d\n", i);
+}
